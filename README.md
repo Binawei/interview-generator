@@ -2,34 +2,31 @@
 
 A modern web application that generates tailored interview questions for any job role using AI. Built with React frontend and Spring Boot backend, powered by Google's Gemini AI.
 
-![AI Interview Question Generator](frontend/src/assets/melo.png)
+![AI Interview Question Generator](interviewQuestionGeneratorFrontend/src/assets/melo.png)
 
 ## ✨ Features
 
 - **AI-Powered Generation** - Uses Google Gemini AI to create relevant interview questions
 - **Job-Specific Questions** - Tailored questions based on job title input
--
-
-## 🚀 Live Demo
-
-- **Frontend**: [Deployed on Netlify/Vercel] (Add your URL here)
-- **Backend API**: [Deployed on Render] (Add your URL here)
 
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 - **React 19** - Modern React with hooks
-- **CSS Variables** - Maintainable styling system
+- **Vanilla Css** - Maintainable styling system
 - **Responsive Design** - Mobile-first approach
 - **Modern JavaScript** - ES6+ features
 
 ### Backend
+
 - **Spring Boot 3** - Java web framework
 - **Maven** - Dependency management
 - **Google Gemini AI** - AI question generation
 - **Docker** - Containerization for deployment
 
 ### Deployment
+
 - **Frontend**: Netlify/Vercel
 - **Backend**: Render (Docker container)
 - **Version Control**: Git/GitHub
@@ -38,7 +35,7 @@ A modern web application that generates tailored interview questions for any job
 
 ```
 Melo-Associates/
-├── frontend/                    # React application
+├── interviewQuestionGeneratorFrontend/                    # React application
 │   ├── src/
 │   │   ├── components/         # React components
 │   │   │   ├── InterviewGenerator.jsx
@@ -50,7 +47,7 @@ Melo-Associates/
 │   ├── public/                # Static assets
 │   └── package.json           # Dependencies
 │
-├── backend/                    # Spring Boot API
+├── QuestionGeneratorBackend/                    # Spring Boot API
 │   ├── src/main/java/com/melo/questiongenerator/
 │   │   ├── controller/        # REST controllers
 │   │   ├── service/           # Business logic
@@ -67,19 +64,22 @@ Melo-Associates/
 ## 🚦 Getting Started
 
 ### Prerequisites
+
 - **Node.js** 16+ and npm
 - **Java** 17+ and Maven
 - **Google Gemini API Key**
 
 ### 1. Clone Repository
+
 ```bash
-git clone https://github.com/yourusername/Melo-Associates.git
+git clone https://github.com/Binawei/interview-generator.git
 cd Melo-Associates
 ```
 
 ### 2. Backend Setup
+
 ```bash
-cd backend
+cd QuestionGeneratorBackend
 
 # Create .env file
 echo "GEMINI_API_KEY=yapi_key_here" > .env
@@ -92,28 +92,31 @@ mvn spring-boot:run
 Backend will run on `http://localhost:8080`
 
 ### 3. Frontend Setup
+
 ```bash
-cd frontend
+cd interviewQuestionGeneratorFrontend
 
 # Install dependencies
 npm install
 
 # Start development server
-npm start
+npm run dev
 ```
 
 Frontend will run on `http://localhost:3000`
 
 ### 4. Get Gemini API Key
-1. Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
+
+1. Go to [Google AI Studio](https://ai.google.dev/)
 2. Create a new API key
 3. Add it to your `.env` file
 
 ## 🐳 Docker Deployment
 
 ### Build and Run Backend
+
 ```bash
-cd backend
+cd QuestionGeneratorBackend
 
 # Build Docker image
 docker build -t question-generator .
@@ -122,13 +125,10 @@ docker build -t question-generator .
 docker run -p 8080:8080 -e GEMINI_API_KEY=your_key question-generator
 ```
 
-
-
-
-
 ## 📱 API Endpoints
 
 ### Generate Questions
+
 ```http
 POST /api/generate-questions
 Content-Type: application/json
@@ -139,44 +139,37 @@ Content-Type: application/json
 ```
 
 **Response:**
+
 ```json
 {
-  "questions": "1. What is your experience with...\n2. How do you handle..."
+  "questions": "Can you describe a time when you had to manage a customer.."
 }
 ```
 
 ## 🎯 Features in Detail
 
 ### AI Question Generation
+
 - Powered by Google Gemini AI
 - Generates role-specific questions
 - Considers industry best practices
 - Provides comprehensive question sets
 
-
 ## 🚀 Deployment
 
 ### Backend (Render)
+
 1. Push code to GitHub
 2. Connect repository to Render
-3. Set root directory to `backend`
+3. Set root directory to `QuestionGeneratorBackend`
 4. Add environment variables
 5. Deploy automatically
 
 ### Frontend (Netlify/Vercel)
+
 1. Connect repository
-2. Set build directory to `frontend`
+2. Set build directory to `interviewQuestionGeneratorFrontend`
 3. Configure build commands
 4. Deploy automatically
-
-
-## 🙏 Acknowledgments
-
-- Google Gemini AI for question generation
-- React team for the amazing framework
-- Spring Boot for the robust backend framework
-- The open-source community
-
----
 
 ⭐ **Star this repository if you found it helpful!**
