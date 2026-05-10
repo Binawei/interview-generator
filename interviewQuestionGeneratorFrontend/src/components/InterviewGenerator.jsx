@@ -133,7 +133,7 @@ function InterviewGenerator() {
       )}
 
       <footer className="footer">
-        <p>Generate professional interview questions instantly</p>
+        <p>Get Tailored professional interview questions instantly</p>
       </footer>
     </div>
   );

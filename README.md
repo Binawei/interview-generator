@@ -134,7 +134,7 @@ POST /api/generate-questions
 Content-Type: application/json
 
 {
-  "jobTitle": "Senior Software Engineer"
+  "jobTitle": "Customer Success Manager"
 }
 ```
 
