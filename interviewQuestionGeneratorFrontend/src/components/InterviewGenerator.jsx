@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import meloLogo from '../assets/melo.png';
+import { API } from '../api';
 import './InterviewGenerator.css';
 
 function InterviewGenerator() {
@@ -18,7 +19,7 @@ function InterviewGenerator() {
     setCopied(false);
 
     try {
-      const response = await fetch("http://localhost:8080/api/generate-questions", {
+      const response = await fetch(API.GENERATE_QUESTIONS, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
