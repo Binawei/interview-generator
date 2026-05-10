@@ -75,7 +75,7 @@ function InterviewGenerator() {
         <div className="icon">
           <img src={meloLogo} alt="Melo Logo" className="logo-image" />
         </div>
-        <h1>Interview Question Generator</h1>
+        <h1>Interview Questions Generator</h1>
         <p className="subtitle">Generate tailored interview questions for your next interview</p>
       </header>
 
