@@ -27,7 +27,7 @@ A modern web application that generates tailored interview questions for any job
 
 ### Deployment
 
-- **Frontend**: Netlify/Vercel
+- **Frontend**: Github Pages
 - **Backend**: Render (Docker container)
 - **Version Control**: Git/GitHub
 
