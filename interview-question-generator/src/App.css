@@ -1,0 +1,49 @@
+/* App Container Styles */
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+  background: var(--bg-gradient);
+}
+
+.container {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-2xl);
+  padding: var(--space-10);
+  max-width: 800px;
+  width: 100%;
+  animation: slideUp 2s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    padding: var(--space-6);
+    margin: var(--space-3);
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: var(--space-3);
+  }
+  
+  .container {
+    padding: var(--space-5);
+  }
+}

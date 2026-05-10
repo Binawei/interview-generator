@@ -1,0 +1,18 @@
+# React
+node_modules
+dist
+
+# Java
+target
+*.class
+*.log
+
+# Environment
+.env
+
+# IDE
+.idea
+.vscode
+
+# macOS
+.DS_Store
