@@ -165,7 +165,7 @@ Content-Type: application/json
 4. Add environment variables
 5. Deploy automatically
 
-### Frontend (Netlify/Vercel)
+### Frontend (Github pages)
 
 1. Connect repository
 2. Set build directory to `interviewQuestionGeneratorFrontend`
