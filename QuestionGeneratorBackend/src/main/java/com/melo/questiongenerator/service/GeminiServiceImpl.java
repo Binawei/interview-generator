@@ -1,5 +1,6 @@
 package com.melo.questiongenerator.service;
 
+import com.melo.questiongenerator.dto.JobRequest;
 import com.melo.questiongenerator.dto.QuestionResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -15,11 +16,11 @@ public class GeminiServiceImpl implements GeminiService {
     private final RestClient restClient = RestClient.create();
 
     @Override
-    public QuestionResponse generateQuestions(String jobTitle) {
+    public QuestionResponse generateQuestions(JobRequest request) {
         String prompt = """
                 Generate exactly 3 thoughtful interview questions for a %s role.
                 Return only a numbered list.
-                """.formatted(jobTitle);
+                """.formatted(request.jobTitle());
 
         Map<String, Object> body = Map.of(
                 "contents", List.of(

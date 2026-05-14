@@ -9,6 +9,8 @@ function InterviewGenerator() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
+  const [retryCount, setRetryCount] = useState(0);
+  const MAX_RETRIES = 2;
 
   async function generateQuestions() {
     if (!jobTitle.trim()) return;
@@ -28,13 +30,56 @@ function InterviewGenerator() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to generate questions");
+        // Handle different HTTP error codes with specific messages
+        let errorMessage;
+        switch (response.status) {
+          case 400:
+            errorMessage = "Invalid request. Please check your job title and try again.";
+            break;
+          case 401:
+            errorMessage = "Authentication failed. Please contact support.";
+            break;
+          case 403:
+            errorMessage = "Access denied. You don't have permission to use this service.";
+            break;
+          case 404:
+            errorMessage = "Service not found. Please try again later.";
+            break;
+          case 429:
+            errorMessage = "Too many requests. Please wait a moment and try again.";
+            break;
+          case 500:
+            errorMessage = "Server error. Our team has been notified. Please try again later.";
+            break;
+          case 502:
+            errorMessage = "Service temporarily unavailable. Please try again in a few minutes.";
+            break;
+          case 503:
+            errorMessage = "Service is currently under maintenance. Please try again later.";
+            break;
+          default:
+            errorMessage = `Request failed with status ${response.status}. Please try again.`;
+        }
+        throw new Error(errorMessage);
       }
 
       const data = await response.json();
       setQuestions(data.questions);
     } catch (err) {
-      setError("Unable to generate questions. Please check your connection and try again.");
+      // Log detailed error information for debugging
+      console.error('API Error Details:', {
+        message: err.message,
+        timestamp: new Date().toISOString(),
+        jobTitle: jobTitle,
+        userAgent: navigator.userAgent
+      });
+      
+      // Set user-friendly error message
+      if (err.name === 'TypeError' && err.message.includes('fetch')) {
+        setError("Unable to connect to the server. Please check your internet connection and try again.");
+      } else {
+        setError(err.message || "Unable to generate questions. Please try again.");
+      }
     } finally {
       setLoading(false);
     }
