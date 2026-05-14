@@ -106,7 +106,7 @@ function InterviewGenerator() {
           ) : (
             <>
             <span>✨</span>
-              Generate Questions?
+              Generate Questions
             </>
           )}
         </button>
